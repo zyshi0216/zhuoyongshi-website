@@ -17,9 +17,9 @@ const researchAreas = [
     title: "MACHINE",
     subtitle: "Machine Intelligence",
     items: [
-      "UAV Planning",
+      "Autonomous UAVs",
       "Swarm Intelligence",
-      "Autonomous Systems",
+      "Trajectory Planning",
       "Intelligent Decision Making",
     ],
   },
@@ -31,29 +31,55 @@ const researchAreas = [
       "Environmental Sensing",
       "Turbulence Reconstruction",
       "Physical Modeling",
-      "Atmospheric Systems",
+      "Atmospheric Water Harvesting",
     ],
   },
 ];
 
-const featuredResearch = [
+const projects = [
   {
-    category: "DIGITAL HEALTH",
+    number: "01",
+    domain: "HUMAN",
+    status: "ONGOING RESEARCH",
     title: "Continuous Assessment Enables Adaptive Motor Rehabilitation",
+    keywords:
+      "Wearable Sensing · Parkinson's Disease · Closed-loop Rehabilitation",
     description:
-      "Closed-loop wearable sensing and continuous motor assessment for personalized adaptive rehabilitation.",
+      "Integrating continuous motor assessment into rehabilitation interactions to enable personalized and adaptive training. Multimodal sensing captures changes in motor performance over repeated sessions, allowing rehabilitation tasks to respond dynamically to individual capability and progress.",
+    highlight: "ASSESSMENT → ADAPTATION → REHABILITATION",
   },
   {
-    category: "HUMAN DIGITAL TWIN",
-    title: "Asymmetric Sensor Topology for Motor Assessment",
+    number: "02",
+    domain: "HUMAN",
+    status: "ONGOING RESEARCH",
+    title: "Digital Twins for Efficient Human Motion Sensing",
+    keywords:
+      "Human Digital Twin · Virtual Sensing · Sensor Topology · Motor Assessment",
     description:
-      "Digital twins and virtual sensing for identifying efficient sensor configurations for human motion assessment.",
+      "Exploring how digital twins and virtual sensors can reduce physical sensing requirements while preserving clinically relevant motor information. Large-scale topology screening is used to identify efficient asymmetric sensor configurations for human motion assessment.",
+    highlight: "70,000+ SENSOR CONFIGURATIONS",
   },
   {
-    category: "AUTONOMOUS SYSTEMS",
-    title: "Turbulence Reconstruction and UAV Route Planning",
+    number: "03",
+    domain: "MACHINE × ENVIRONMENT",
+    status: "MEASUREMENT · 2026",
+    title: "From Environmental Observation to Autonomous Decision",
+    keywords:
+      "Turbulence Sensing · Environmental Reconstruction · UAV Route Planning",
     description:
-      "An observation-to-decision framework connecting environmental reconstruction with autonomous UAV navigation.",
+      "Connecting environmental perception with autonomous decision-making for low-altitude UAV operations. The framework reconstructs complex turbulence fields from observations and propagates environmental information downstream to route planning.",
+    highlight: "OBSERVATION → RECONSTRUCTION → DECISION",
+  },
+  {
+    number: "04",
+    domain: "ENVIRONMENT",
+    status: "ONGOING RESEARCH",
+    title: "Intelligent Atmospheric Water Harvesting",
+    keywords:
+      "Environmental Sensing · Condensation · Adaptive Control · Embedded Systems",
+    description:
+      "Developing a sensing-driven atmospheric water harvesting system that responds to changing environmental conditions. Distributed environmental and surface measurements provide the physical basis for adaptive condensation and system control.",
+    highlight: "SENSING → PHYSICS → ADAPTIVE CONTROL",
   },
 ];
 
@@ -78,7 +104,7 @@ const publications = [
   },
   {
     year: "2023",
-    journal: "IEEE TAES",
+    journal: "IEEE Transactions on Aerospace and Electronic Systems",
     title: "UAV Trajectory Prediction Based on Flight State Recognition",
   },
 ];
@@ -93,11 +119,18 @@ export default function Home() {
         </a>
 
         <div className="navLinks">
+          <a href="#about">About</a>
           <a href="#research">Research</a>
           <a href="#featured">Projects</a>
           <a href="#publications">Publications</a>
           <a href="#news">News</a>
           <a href="/cv.pdf">CV</a>
+
+          <div className="languageSwitch">
+            <span className="languageActive">EN</span>
+            <span className="languageDivider">|</span>
+            <a href="/zh">中文</a>
+          </div>
         </div>
       </nav>
 
@@ -166,10 +199,10 @@ export default function Home() {
               <div className="portraitGrid" />
 
               <Image
-                src="/images/portrait-hero.jpg"
+                src="/images/portrait-hero.png"
                 alt="Zhuoyong Shi"
-                width={700}
-                height={900}
+                width={900}
+                height={1200}
                 priority
                 className="portrait"
               />
@@ -199,11 +232,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About */}
+<section className="section aboutSection" id="about">
+  <div className="aboutLeft">
+    <p className="sectionLabel">ABOUT</p>
+
+    <h2 className="aboutStatement">
+      Sensing the physical world.
+      <br />
+      Modeling its dynamics.
+      <br />
+      <span>Enabling intelligent decisions.</span>
+    </h2>
+
+    <div className="aboutIdentity">
+      <div>
+        <span className="aboutMetaLabel">CURRENT</span>
+        <strong>PhD Researcher</strong>
+        <p>National University of Singapore</p>
+        <small>2025 — Present</small>
+      </div>
+
+      <div>
+        <span className="aboutMetaLabel">BACKGROUND</span>
+        <strong>Electronic Science & Technology</strong>
+        <p>BEng · MEng</p>
+        <small>Northwestern Polytechnical University & Xian Jiaotong University of City College</small>
+      </div>
+    </div>
+  </div>
+
+  <div className="aboutRight">
+    <p className="aboutLead">
+      Zhuoyong Shi is a PhD researcher at the National University of
+      Singapore, working at the intersection of intelligent sensing,
+      machine intelligence, and physical modeling.
+    </p>
+
+    <p>
+      His research focuses on sensing and computational approaches for
+      understanding and interacting with dynamic physical systems. His
+      current work spans wearable sensing and digital health, human motion
+      assessment and adaptive rehabilitation, autonomous UAV systems,
+      environmental reconstruction, and intelligent atmospheric water
+      harvesting.
+    </p>
+
+    <div className="aboutQuestion">
+      <span>RESEARCH QUESTION</span>
+
+      <p>
+        How can physical systems be sensed, modeled, and understood well
+        enough to enable intelligent and adaptive decision-making?
+      </p>
+    </div>
+  </div>
+</section>
+
+
       {/* Research */}
       <section className="section researchSection" id="research">
         <div className="sectionHeading">
           <div>
-            <p className="sectionLabel">RESEARCH INTERESTS</p>
+            <p className="sectionLabel">RESEARCH FRAMEWORK</p>
             <h2>
               Understanding dynamic systems through sensing, intelligence, and
               physical models.
@@ -212,8 +303,8 @@ export default function Home() {
 
           <p className="sectionIntro">
             My research connects intelligent sensing with computational and
-            physical models to characterize, understand, and optimize the
-            dynamic states of humans, machines, and environments.
+            physical models to characterize, understand, and optimize dynamic
+            states across three interacting domains.
           </p>
         </div>
 
@@ -237,24 +328,42 @@ export default function Home() {
       </section>
 
       {/* Featured Research */}
-      <section className="section featuredSection" id="featured">
-        <div className="simpleHeading">
+      <section className="section featuredResearchSection" id="featured">
+        <div className="featuredResearchHeading">
           <p className="sectionLabel">FEATURED RESEARCH</p>
-          <h2>Selected work across sensing, modeling, and intelligent systems.</h2>
+          <h2>Selected research directions</h2>
+          <p>
+            Research across human health, autonomous machines, and physical
+            environments connected by sensing, modeling, and intelligence.
+          </p>
         </div>
 
-        <div className="featuredGrid">
-          {featuredResearch.map((project, index) => (
-            <article className="featuredCard" key={project.title}>
-              <div className={`projectVisual projectVisual${index + 1}`}>
-                <span>0{index + 1}</span>
+        <div className="projectList">
+          {projects.map((project) => (
+            <article
+              className={`projectRow ${
+                project.number === "01" ? "projectRowPrimary" : ""
+              }`}
+              key={project.number}
+            >
+              <div className="projectMeta">
+                <span>{project.number}</span>
+                <p>{project.domain}</p>
               </div>
 
-              <div className="projectContent">
-                <p>{project.category}</p>
+              <div className="projectMain">
+                <div className="projectStatus">{project.status}</div>
+
                 <h3>{project.title}</h3>
-                <span>{project.description}</span>
+
+                <p className="projectKeywords">{project.keywords}</p>
+
+                <p className="projectDescription">{project.description}</p>
+
+                <div className="projectHighlight">{project.highlight}</div>
               </div>
+
+              <div className="projectArrow">↗</div>
             </article>
           ))}
         </div>
@@ -326,9 +435,9 @@ export default function Home() {
         <div>
           <strong>ZHUOYONG SHI</strong>
           <p>
-            PhD Researcher · Department of Chemistry
+            PhD Researcher · National University of Singapore
             <br />
-            National University of Singapore
+            Intelligent Sensing · Physical Modeling · Machine Intelligence
           </p>
         </div>
 
